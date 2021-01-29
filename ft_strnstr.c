@@ -6,27 +6,24 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 16:32:23 by psong             #+#    #+#             */
-/*   Updated: 2021/01/21 16:39:47 by psong            ###   ########.fr       */
+/*   Updated: 2021/01/26 20:03:07 by psong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		finding(const char *str, const char *to_find, unsigned int i)
+size_t	finding(const char *str, const char *to_find, size_t i)
 {
-	unsigned int	k;
-	unsigned int	j;
+	size_t	k;
+	size_t	j;
 
 	k = 0;
 	j = 0;
-	while (to_find[j])
+	while (to_find[j++])
 	{
 		if (str[i] == to_find[j])
-		{
 			k++;
-		}
 		i++;
-		j++;
 	}
 	if (k == j)
 		return (1);
@@ -35,22 +32,22 @@ int		finding(const char *str, const char *to_find, unsigned int i)
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	unsigned int	i;
-	unsigned int	z;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	z = 0;
-	if (!*to_find)
+	j = 0;
+	if (!to_find)
 		return ((char *)&str[i]);
-	while (str[i] && (size_t)i < len)
+	while (str[i] && i < len)
 	{
 		if (str[i] == to_find[0])
 		{
-			z = finding(str, to_find, i);
-			if (z == 1 && (i + ft_strlen(to_find) <= len))
+			j = finding(str, to_find, i);
+			if (j == 1 && (i + ft_strlen(to_find) <= len))
 				return ((char *)&str[i]);
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

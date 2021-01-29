@@ -6,19 +6,18 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:44:13 by psong             #+#    #+#             */
-/*   Updated: 2021/01/22 15:58:15 by psong            ###   ########.fr       */
+/*   Updated: 2021/01/28 19:40:14 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
-		return ;
-	while (*s)
-	{
-		write(fd, s, 1);
-		s++;
-	}
+	int i;
+
+	i = 0;
+	while (s[i])
+		write(fd, &s[i++], 1);
 }

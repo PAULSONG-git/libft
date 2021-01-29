@@ -6,11 +6,12 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 16:06:34 by psong             #+#    #+#             */
-/*   Updated: 2021/01/22 16:10:38 by psong            ###   ########.fr       */
+/*   Updated: 2021/01/28 11:12:23 by psong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putnbr_fd(int nb, int fd)
 {
@@ -25,5 +26,5 @@ void	ft_putnbr_fd(int nb, int fd)
 		nbr = (unsigned int)nb;
 	if (nbr >= 10)
 		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd((char)(nbr % 10 + 48), fd);
+	ft_putchar_fd((char)(nbr % 10 + '0'), fd);
 }

@@ -6,11 +6,12 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:59:15 by psong             #+#    #+#             */
-/*   Updated: 2021/01/22 16:06:18 by psong            ###   ########.fr       */
+/*   Updated: 2021/01/28 11:05:49 by psong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putendl_fd(char *s, int fd)
 {

@@ -6,19 +6,19 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 11:53:57 by psong             #+#    #+#             */
-/*   Updated: 2021/01/22 11:58:42 by psong            ###   ########.fr       */
+/*   Updated: 2021/01/28 11:21:15 by psong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char	*ptr;
+	void	*ptr;
 
-	ptr = malloc(size * count);
-	if (ptr == 0)
-		return (0);
-	ft_memset(ptr, 0, size * count);
+	if (!(ptr = (void *)malloc(size * count)))
+		return (NULL);
+	ft_bzero(ptr, size * count);
 	return (ptr);
 }

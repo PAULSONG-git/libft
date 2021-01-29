@@ -6,11 +6,12 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:02:52 by psong             #+#    #+#             */
-/*   Updated: 2021/01/22 15:16:49 by psong            ###   ########.fr       */
+/*   Updated: 2021/01/28 10:26:25 by psong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_itoa(int n)
 {

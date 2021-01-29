@@ -6,11 +6,12 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 14:10:47 by psong             #+#    #+#             */
-/*   Updated: 2021/01/22 14:10:50 by psong            ###   ########.fr       */
+/*   Updated: 2021/01/28 00:33:46 by psong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -32,7 +33,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 			break ;
 		end--;
 	}
-	if (start > end)
+	if (start >= end)
 		return (ft_strdup(""));
 	if (!(dst = (char *)malloc(sizeof(char) * (end - start + 1))))
 		return (NULL);
