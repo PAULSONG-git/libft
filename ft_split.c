@@ -6,14 +6,14 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 14:42:44 by psong             #+#    #+#             */
-/*   Updated: 2021/01/29 13:41:10 by paul             ###   ########.fr       */
+/*   Updated: 2021/02/01 10:54:50 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static char	**ft_malloc_error(char **dst)
+char	**ft_malloc_error(char **dst)
 {
 	unsigned int	i;
 
@@ -27,7 +27,7 @@ static char	**ft_malloc_error(char **dst)
 	return (NULL);
 }
 
-static int	ft_count_words(const char *s, char c)
+int	ft_count_words(const char *s, char c)
 {
 	int	i;
 	int	words;
@@ -48,7 +48,7 @@ static int	ft_count_words(const char *s, char c)
 	return (words);
 }
 
-static char	**ft_size_words(const char *s, char c, char **dst, int j)
+char	**ft_size_words(const char *s, char c, char **dst, int j)
 {
 	int	i;
 	int	size_word;
@@ -59,11 +59,15 @@ static char	**ft_size_words(const char *s, char c, char **dst, int j)
 		size_word = 0;
 		if (s[i] != c)
 		{
-			while (s[i++] != c && s[i++])
-				++size_word;
-			dst[j++] = malloc(sizeof(char) * (size_word + 1));
-			if (!dst)
-				return (ft_malloc_error(dst));
+			while (s[i] != c && s[i])
+			{
+				size_word++;
+				i++;
+			}
+			dst[j] = malloc(sizeof(char) * (size_word + 1));
+			if (!(&dst[j]))
+				return (NULL);
+			j++;
 		}
 		else
 			i++;
@@ -100,7 +104,7 @@ char		**ft_split(const char *s, char c)
 	if (!s)
 		return (NULL);
 	if (!(dst = malloc(sizeof(char *) * (ft_count_words(s, c) + 1))))
-		return (ft_malloc_error(dst));
+		return (NULL);
 	if (!(ft_size_words(s, c, dst, 0)))
 		return (ft_malloc_error(dst));
 	ft_do(s, dst, c, 0);

@@ -6,7 +6,7 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 11:32:30 by psong             #+#    #+#             */
-/*   Updated: 2021/01/26 21:22:08 by psong            ###   ########.fr       */
+/*   Updated: 2021/01/30 16:51:17 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ int	ft_atoi(const char *str)
 	{
 		nb = nb * 10 + sign * (str[i] - '0');
 		i++;
+		if (i >= 20)
+		{
+			if (sign == -1)
+				return (0);
+			else
+				return (-1);
+		}
 	}
 	return (nb);
 }
