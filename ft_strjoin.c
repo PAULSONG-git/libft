@@ -6,7 +6,7 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 14:03:42 by psong             #+#    #+#             */
-/*   Updated: 2021/01/30 16:09:11 by paul             ###   ########.fr       */
+/*   Updated: 2021/02/01 16:43:02 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (s1 == NULL)
+		return (NULL);
 	len = (ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!s1 || !s2 ||
-			!(dst = (char *)malloc(sizeof(char) * len)))
+	if (!(dst = (char *)malloc(sizeof(char) * len)))
 		return (NULL);
 	ft_strlcpy(dst, s1, (ft_strlen(s1) + 1));
 	ft_strlcat(dst, s2, len);

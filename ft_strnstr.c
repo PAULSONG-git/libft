@@ -6,46 +6,27 @@
 /*   By: paul <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 14:30:27 by paul              #+#    #+#             */
-/*   Updated: 2021/01/31 21:09:26 by paul             ###   ########.fr       */
+/*   Updated: 2021/02/01 15:54:14 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		finding(const char *str, const char *to_find, int i)
-{
-	int	k;
-	int	j;
-
-	k = 0;
-	j = 0;
-	while (to_find[j])
-	{
-		if (str[i] == to_find[j])
-			k++;
-		i++;
-		j++;
-	}
-	if (k == j)
-		return (1);
-	return (0);
-}
-
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	int	i;
-	int	z;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	z = 0;
 	if (!*to_find)
 		return ((char *)&str[i]);
-	while (str[i] && (size_t)i < len)
+	while (str[i] && i < len)
 	{
-		if (str[i] == to_find[0])
+		j = 0;
+		while (str[i + j] == to_find[j] && i + j < len)
 		{
-			z = finding(str, to_find, i);
-			if (z == 1 && (i + ft_strlen(to_find) <= len))
+			j++;
+			if (to_find[j] == '\0')
 				return ((char *)&str[i]);
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 10:53:58 by psong             #+#    #+#             */
-/*   Updated: 2021/01/30 15:38:21 by paul             ###   ########.fr       */
+/*   Updated: 2021/02/01 15:40:01 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	size_t	i;
 
-	if (!dst && !src)
+	if (dst == NULL && src == NULL)
 		return (NULL);
 	i = 0;
 	while (i < n)

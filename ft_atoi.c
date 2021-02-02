@@ -6,11 +6,19 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 11:32:30 by psong             #+#    #+#             */
-/*   Updated: 2021/01/30 16:51:17 by paul             ###   ########.fr       */
+/*   Updated: 2021/02/01 13:22:02 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	long_value(int sign)
+{
+	if (sign == -1)
+		return (0);
+	else
+		return (-1);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -33,13 +41,8 @@ int	ft_atoi(const char *str)
 	{
 		nb = nb * 10 + sign * (str[i] - '0');
 		i++;
-		if (i >= 20)
-		{
-			if (sign == -1)
-				return (0);
-			else
-				return (-1);
-		}
 	}
+	if (i >= 20)
+		nb = long_value(sign);
 	return (nb);
 }

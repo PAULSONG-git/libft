@@ -6,7 +6,7 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 13:53:50 by psong             #+#    #+#             */
-/*   Updated: 2021/01/29 13:42:57 by paul             ###   ########.fr       */
+/*   Updated: 2021/02/01 16:23:28 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size = ft_strlen(s);
 	if (size <= start)
 	{
-		dst[0] = 0;
+		dst[0] = '\0';
 		return (dst);
 	}
 	ft_strlcpy(dst, s + start, len + 1);

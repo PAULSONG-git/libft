@@ -6,7 +6,7 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 14:42:44 by psong             #+#    #+#             */
-/*   Updated: 2021/02/01 10:54:50 by paul             ###   ########.fr       */
+/*   Updated: 2021/02/01 19:26:30 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	**ft_malloc_error(char **dst)
 	return (NULL);
 }
 
-int	ft_count_words(const char *s, char c)
+int		ft_count_words(const char *s, char c)
 {
 	int	i;
 	int	words;
@@ -48,12 +48,12 @@ int	ft_count_words(const char *s, char c)
 	return (words);
 }
 
-char	**ft_size_words(const char *s, char c, char **dst, int j)
+char	**ft_size_words(const char *s, char c, char **dst, int i)
 {
-	int	i;
+	int	j;
 	int	size_word;
 
-	i = 0;
+	j = 0;
 	while (s[i])
 	{
 		size_word = 0;
@@ -75,7 +75,7 @@ char	**ft_size_words(const char *s, char c, char **dst, int j)
 	return (dst);
 }
 
-void		ft_do(const char *s, char **dst, char c, int i)
+void	ft_do(const char *s, char **dst, char c, int i)
 {
 	int	k;
 	int	j;
@@ -97,13 +97,13 @@ void		ft_do(const char *s, char **dst, char c, int i)
 	dst[j] = NULL;
 }
 
-char		**ft_split(const char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**dst;
 
-	if (!s)
+	if (s == NULL)
 		return (NULL);
-	if (!(dst = malloc(sizeof(char *) * (ft_count_words(s, c) + 1))))
+	if (!(dst = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1))))
 		return (NULL);
 	if (!(ft_size_words(s, c, dst, 0)))
 		return (ft_malloc_error(dst));

@@ -6,7 +6,7 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 10:54:33 by psong             #+#    #+#             */
-/*   Updated: 2021/01/30 15:38:58 by paul             ###   ########.fr       */
+/*   Updated: 2021/02/01 15:45:21 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char	*dst_ptr;
 	unsigned char	*src_ptr;
 
-	if (!dst && !src)
+	if (dst == NULL && src == NULL)
 		return (NULL);
 	i = 0;
 	dst_ptr = (unsigned char *)dst;

@@ -6,7 +6,7 @@
 /*   By: psong <psong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 14:10:47 by psong             #+#    #+#             */
-/*   Updated: 2021/01/28 00:33:46 by psong            ###   ########.fr       */
+/*   Updated: 2021/02/01 17:13:27 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 	char	*dst;
 
-	if (!s1)
+	if (s1 == NULL)
 		return (NULL);
-	if (!set)
+	if (set == NULL)
 		return (ft_strdup(s1));
 	start = 0;
 	end = ft_strlen(s1);
